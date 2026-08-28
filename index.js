@@ -6,8 +6,9 @@ const app = express();
 app.use(expres.json());
 
 app.get("/students", (req, res) => {
-    const student = students.find(students)
-    res.send(students);
+    const student = students.find(s => s.id === parseInt(req.params.id));
+    if (!student) return res.status(404).send("The student with the given ID was not found.");
+    res.send(student);
 });
 
 app.post("students", (req, res) => {
