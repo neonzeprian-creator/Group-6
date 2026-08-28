@@ -1,38 +1,50 @@
 import express from "express";
 
-const students = [{id:0, name: "students"}]
+const students = [
+    { id: 1, name: "Alice", age: 21, course: "Computer Science" },
+    { id: 2, name: "Bob", age: 22, course: "Information Technology" }
+];
+
 const app = express();
+app.use(express.json());
 
-app.use(expres.json());
+app.get("/student", (req, res) => {
+    res.send(students);
+});
 
-app.get("/students", (req, res) => {
-    const student = students.find(s => s.id === parseInt(req.params.id));
-    if (!student) return res.status(404).send("The student with the given ID was not found.");
+app.get("/student/:id", (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const student = students.find((s) => s.id === id);
+    if (!student) return res.status(404).send({ message: "Student not found" });
     res.send(student);
 });
 
-app.post("students", (req, res) => {
-    const newStudent = req.body
-
-    students = [students, newStudent];
-    res.send(newStudents);
-}); 
-
-app.patch("/students/:inded", (req, res) => {
-    const studentsIndex = req.params 
-    const updatedStudentData = req.body
-
-    students[studentsIndex] = updatedStudentData;
-    
-    res.send(students[studentsIndex]);
-    //implement
-
+app.post("/student", (req, res) => {
+    const { name, age, course } = req.body;
+    if (!name) return res.status(400).send({ message: "Name is required" });
+    const id = students.length ? students[students.length - 1].id + 1 : 1;
+    const newStudent = { id, name, age, course };
+    students.push(newStudent);
+    res.status(201).send(newStudent);
 });
 
-app.delete("/students/:index",) 
+app.patch("/student/:id", (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const student = students.find((s) => s.id === id);
+    if (!student) return res.status(404).send({ message: "Student not found" });
+    Object.assign(student, req.body);
+    res.send(student);
+});
 
-//implement
+// Delete a student
+app.delete("/student/:id", (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const index = students.findIndex((s) => s.id === id);
+    if (index === -1) return res.status(404).send({ message: "Student not found" });
+    const removed = students.splice(index, 1)[0];
+    res.send(removed);
+});
 
 app.listen(3000, () => {
-    console.log("listening to port 3000");
-})
+    console.log("listening on port 3000");
+});
