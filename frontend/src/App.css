@@ -1,0 +1,233 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.auth-shell {
+  width: min(100% - 32px, 440px);
+  margin: 48px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.brand-panel {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.brand-panel--warm {
+  background: transparent;
+}
+
+.eyebrow,
+.panel-kicker {
+  margin: 0 0 10px;
+  color: #777;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-panel h1 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.brand-panel h1 em {
+  color: #555;
+  font-style: normal;
+}
+
+.brand-copy {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.status-line {
+  display: none;
+}
+
+.auth-panel {
+  padding-top: 24px;
+}
+
+.tab-switch {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab-switch button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+}
+
+.tab-switch button.active {
+  border-color: #333;
+  background: #333;
+  color: #fff;
+}
+
+.auth-panel h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.panel-copy {
+  margin: 0 0 22px;
+  color: #666;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #222;
+  background: #fff;
+}
+
+.auth-input:focus {
+  outline: 2px solid #aaa;
+  border-color: #555;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #111;
+}
+
+.submit-btn:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.submit-btn span {
+  display: none;
+}
+
+.switch-copy {
+  margin: 18px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.switch-copy button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #222;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.message.success {
+  color: #276738;
+  background: #e8f5e9;
+}
+
+.message.error {
+  color: #a12d2d;
+  background: #ffebee;
+}
+
+.token-box {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.token-box textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  color: #333;
+  background: #f7f7f7;
+  font-size: 12px;
+}
+
+.dashboard-shell {
+  width: min(100% - 32px, 620px);
+  margin: 80px auto;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-shell h1 {
+  margin: 12px 0;
+  font-size: 28px;
+}
+
+.dashboard-copy {
+  margin: 0 0 24px;
+  color: #666;
+}
+
+.dashboard-button {
+  width: auto;
+  min-width: 110px;
+}
+
+@media (max-width: 480px) {
+  .auth-shell {
+    margin: 20px auto;
+    padding: 22px;
+  }
+}
